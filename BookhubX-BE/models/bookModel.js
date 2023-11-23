@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 const bookSchema=mongoose.Schema({
-    title: String,
+    title: {type: String, required: true},
     author: [{type:String}],
     genre: [{type:String}],
     description: String,

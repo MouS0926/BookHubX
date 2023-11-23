@@ -16,8 +16,122 @@ bookRouter.get("/",async(req,res)=>{
 })
 
 bookRouter.post("/add",auth,async(req,res)=>{
-    //complete
     
+    const {title,genre,description,price,image,publisher,author}=req.body
+
+    try {
+
+        if (req.body.userrole !== "author" && req.body.userrole !== "admin") {
+            return res.status(403).send({ "msg": "You don't have permission to add books" });
+        }
+
+        const author=(req.body.userrole == "author" || req.body.userrole == "admin") ? req.body.username : undefined;
+        const newBook = new bookModel({...req.body,author:[author]});
+        await newBook.save()
+
+        res.status(201).send({ "msg": "Book added successfully", book: newBook });
+
+    } catch (error) {
+        res.status(500).send({ "error": error });
+    }
+
+})
+
+
+bookRouter.patch("/update/:id",auth,async(req,res)=>{
+    const {id}=req.params
+
+    try {
+        const book=await bookModel.findOne({_id:id})
+
+        if(!book)
+        {
+            return res.status(200).send({"msg":`Book with ${id} does not exist`})
+        }
+
+        
+        if(req.body.userrole=="admin")
+        {
+            const updatedBook=await bookModel.findByIdAndUpdate({_id:id},req.body)
+            res.status(200).send({"msg":"Book is updated",updatedBook})
+        }
+        else{
+
+                if(req.body.userId==book.userId)
+                {
+                    const updatedBook=await bookModel.findByIdAndUpload({_id:id},req.body)
+                    res.status(200).send({"msg":"Book is updated",updatedBook})
+                }
+                else{
+                    res.status(200).send({"msg":"You dont have permission to update this book"})
+                }
+
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({"err":error})
+    }
+
+})
+
+
+bookRouter.delete("/delete/:id",auth,async(req,res)=>{
+    const {id}=req.params
+
+    try {
+        const book=await bookModel.findOne({_id:id})
+
+        if(!book)
+        {
+            return res.status(200).send({"msg":`Book with ${id} does not exist`})
+        }
+
+        
+        if(req.body.userrole=="admin")
+        {
+            await bookModel.findByIdAndDelete({_id:id})
+            res.status(200).send({"msg":"Book is deleted"})
+        }
+        else{
+
+                if(req.body.userId==book.userId)
+                {
+                    await bookModel.findByIdAndDelete({_id:id})
+                    res.status(200).send({"msg":"Book is Deleted"})
+                }
+                else{
+                    res.status(200).send({"msg":"You dont have permission to delete this book"})
+                }
+
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({"err":error})
+    }
+
+})
+
+//get Single Book details route
+bookRouter.get("/book/:bookid",async(req,res)=>{
+    const {bookid}=req.params
+
+    try {
+        const book=await bookModel.findOne({_id:bookid})
+
+        if(!book)
+        {
+            return res.status(200).send({"msg":`Book with ${id} does not exist`})
+        }
+
+        res.status(200).send(book)
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({"err":error})
+    }
+
 })
 
 

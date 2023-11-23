@@ -8,7 +8,7 @@ const userRoute=express.Router()
 
 
 userRoute.post("/register",async(req,res)=>{
-    const {role,email,password}=req.body
+    const {role,email,password,username}=req.body
     try {
         const user=await userModel.findOne({email})
         if(user){
