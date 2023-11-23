@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Biology 2e",
+    "author": ["Mary Ann Clark", "Jung Choi", "Matthew Douglas"],
+    "genre": [],
+    "description": "No description available",
+    "price": 0,
+    "image": "http://books.google.com/books/content?id=c9zStAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "publisher": "Unknown"
+  },
+  {
+    "title": "Pro Git",
+    "author": ["Scott Chacon"],
+    "genre": ["Computers"],
+    "description": "Git is the version control system developed by Linus Torvalds for Linux kernel development. It took the open source world by storm since its inception in 2005...",
+    "price": 329.57,
+    "image": "http://books.google.com/books/content?id=HrTOa8-HPRYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "publisher": "Apress"
+  },
+  {
+    "title": "Drive",
+    "author": ["Daniel H. Pink"],
+    "genre": ["Business & Economics"],
+    "description": "Forget everything you thought you knew about how to motivate people - at work, at school, at home. It's wrong...",
+    "price": 329.57,
+    "image": "http://books.google.com/books/content?id=l6x0a-jkoGUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "publisher": "Canongate Books"
+  },
+  {
+    "title": "The Hindu Kush Himalaya Assessment",
+    "author": ["Philippus Wester", "Arabinda Mishra", "Aditi Mukherji", "Arun Bhakta Shrestha"],
+    "genre": ["Science"],
+    "description": "This open access volume is the first comprehensive assessment of the Hindu Kush Himalaya (HKH) region...",
+    "price": 0,
+    "image": "http://books.google.com/books/content?id=dI2CDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "publisher": "Springer"
+  },
+  {
+    "title": "A Pattern Language",
+    "author": ["Christopher Alexander"],
+    "genre": ["Architecture"],
+    "description": "You can use this book to design a house for yourself with your family; you can use it to work with your neighbors to improve your town and neighborhood...",
+    "price": 644.35,
+    "image": "http://books.google.com/books/content?id=FTpxDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "publisher": "Oxford University Press"
+  }
+]
