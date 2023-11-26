@@ -5,6 +5,7 @@ const { commentModel } = require("../models/commentModel")
 
 const discussionRoute=express.Router()
 
+//create discussion
 discussionRoute.post("/create",auth,async(req,res)=>{
     const {title,content,genre,author}=req.body
 
@@ -18,7 +19,33 @@ discussionRoute.post("/create",auth,async(req,res)=>{
 
 })
 
+discussionRoute.patch("/update/:id",auth,async(req,res)=>{
+  const {id}=req.params
 
+  try {
+    const discussion=await discussionModel.findOne({_id:id})
+    if(!discussion){
+      return res.status(404).send({"msg":`No discussion found with the id ${id}`})
+    }
+
+    if(discussion.userId==req.body.userId)
+    {
+      const updatedDiscussion=await discussionModel.findByIdAndUpdate({_id:id},req.body)
+      req.status(200).send({"msg":"Discussion is updated"})
+    }
+    else{
+      req.status(200).send({"msg":"You dont have permission to update"})
+    }
+
+  } catch (error) {
+    console.log(error);
+    req.status(500).send({"err":error})
+  }
+})
+
+
+
+//add comment to a discussion
 discussionRoute.post("/comment/:discussionid", auth, async (req, res) => {
 
     try {

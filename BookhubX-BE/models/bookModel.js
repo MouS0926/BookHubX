@@ -7,7 +7,8 @@ const bookSchema=mongoose.Schema({
     price: String,
     image: String,
     publisher: String,
-    userId:String
+    userId:String,
+    stock:Number
 },{
     versionKey:false
 })

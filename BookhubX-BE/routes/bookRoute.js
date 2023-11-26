@@ -17,7 +17,7 @@ bookRouter.get("/",async(req,res)=>{
 
 bookRouter.post("/add",auth,async(req,res)=>{
     
-    const {title,genre,description,price,image,publisher,author}=req.body
+    const {title,genre,description,price,image,publisher,author,stock}=req.body
 
     try {
 
@@ -59,7 +59,7 @@ bookRouter.patch("/update/:id",auth,async(req,res)=>{
 
                 if(req.body.userId==book.userId)
                 {
-                    const updatedBook=await bookModel.findByIdAndUpload({_id:id},req.body)
+                    const updatedBook=await bookModel.findByIdAndUpdate({_id:id},req.body)
                     res.status(200).send({"msg":"Book is updated",updatedBook})
                 }
                 else{
