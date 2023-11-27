@@ -14,7 +14,7 @@ const readinglistSchema=mongoose.Schema({
     versionKey:false
 })
 
-const readinglistModel=mongoose.model("review",readinglistSchema)
+const readinglistModel=mongoose.model("readinglist",readinglistSchema)
 module.exports={
     readinglistModel
 }

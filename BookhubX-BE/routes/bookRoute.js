@@ -8,7 +8,30 @@ const bookRouter=express.Router()
 
 bookRouter.get("/",async(req,res)=>{
     try {
-        let allbooks=await bookModel.find()
+
+        const { author, title, publisher, genre, sortBy, sortOrder } = req.query;
+        const query = {}
+
+        if (author) {
+            query.author =  { $regex: author, $options: 'i' };
+          }
+
+          if (title) {
+          
+            query.title = { $regex: title, $options: 'i' };
+          }
+      
+          if (publisher) {
+           
+            query.publisher ={ $regex: publisher, $options: 'i' };
+          }
+      
+          if (genre) {
+            
+            query.genre = { $regex: genre, $options: 'i' };
+          }
+
+        let allbooks=await bookModel.find(query)
         res.status(200).send(allbooks)
     } catch (error) {
         res.status(200).send({"error":error})
