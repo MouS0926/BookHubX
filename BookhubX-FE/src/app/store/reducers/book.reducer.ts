@@ -6,12 +6,14 @@ export interface BookState {
     books: Book[];
     loading: boolean;
     error: string | null;
+    selectedBook: Book | null;
   }
   
   export const initialState: BookState = {
     books: [],
     loading: false,
     error: null,
+    selectedBook:  null
   };
   
 
@@ -28,5 +30,11 @@ export interface BookState {
       ...state,
       loading: false,
       error,
-    }))
+    })),
+    on(BookActions.searchBooksByTitle, (state) => ({ ...state, loading: true })),
+    on(BookActions.filterBooksByGenre, (state) => ({ ...state, loading: true })),
+
+    
+
+
   );

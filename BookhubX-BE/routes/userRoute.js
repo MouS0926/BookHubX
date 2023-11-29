@@ -12,7 +12,7 @@ userRoute.post("/register",async(req,res)=>{
     try {
         const user=await userModel.findOne({email})
         if(user){
-            res.status(200).send({"msg":`user with email ${email} already exist`})
+            res.status(201).send({"msg":`user with email ${email} already exist`})
         }
         else{
             bcrypt.hash(password, 5,async (err, hash)=> {
@@ -45,10 +45,10 @@ userRoute.post("/login",async(req,res)=>{
                 if(result)
                 {
                     var token = jwt.sign({ userId:user._id,username:user.username,userrole:user.role }, 'bookhub');
-                    res.status(200).send({"msg":"Logedd in Successfully",token})
+                    res.status(200).send({"msg":"Logedd in Successfully",token,username:user.username})
                 }
                 else{
-                    res.status(401).send("Invalid password") 
+                    res.status(400).send("Invalid password") 
                 }
             });
         }

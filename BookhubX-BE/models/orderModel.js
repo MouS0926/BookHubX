@@ -22,7 +22,11 @@ const orderSchema = new mongoose.Schema({
     enum: ['Processing', 'Shipped', 'Delivered'],
     default: 'Processing',
   },
-  address:String
+  address:{
+    street:String,
+    state:String,
+    zip:String
+  }
 },{
   versionKey:false
 });

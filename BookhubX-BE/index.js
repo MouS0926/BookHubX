@@ -7,6 +7,7 @@ const { reviewRoute } = require("./routes/reviewRoute")
 const { cartRoute } = require("./routes/cartRoute")
 const { orderRoute } = require("./routes/orderRoute")
 const { readingListRoute } = require("./routes/readlingListRoute")
+const cors =require("cors")
 // const fetch = require("node-fetch")
 // const fetch = require("cross-fetch");
 
@@ -16,8 +17,9 @@ const { createChat,CancelledCompletionError } = require("completions")
 
 
 const app=express()
-
+app.use(cors())
 app.use(express.json())
+
 
 app.use("/books",bookRouter)
 app.use("/user",userRoute)

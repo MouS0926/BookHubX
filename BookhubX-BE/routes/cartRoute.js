@@ -8,9 +8,9 @@ const cartRoute=express.Router()
 
 
 //  get user's cart details
-cartRoute.get("/user/:userId", auth, async (req, res) => {
+cartRoute.get("/user", auth, async (req, res) => {
     try {
-      const { userId } = req.params;
+      const  userId  = req.body.userId;
   
       // Find all cart items for the specified user
       const userCart = await cartModel.find({ userId });
@@ -37,7 +37,7 @@ cartRoute.post("/add", auth, async (req, res) => {
       }
   
      
-      const newCartItem = new cartModel({...req.body,bookimage:book.image,bookprice:book.price});
+      const newCartItem = new cartModel({...req.body,bookimage:book.image,bookprice:book.price,booktitle:book.title});
   
    
       await newCartItem.save();

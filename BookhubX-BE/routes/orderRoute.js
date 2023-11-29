@@ -77,9 +77,9 @@ async function calculateTotalPrice(userCart) {
   }
   
 // Get User all Orders
-orderRoute.get("/user/:userId", auth, async (req, res) => {
+orderRoute.get("/user", auth, async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.body.userId;
     const userOrders = await orderModel.find({ userId });
     res.status(200).json(userOrders);
   } catch (error) {

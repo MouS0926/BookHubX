@@ -6,7 +6,8 @@ const cartSchema=mongoose.Schema({
     bookId :String,
     quantity:Number,
     bookimage:String,
-    bookprice:Number
+    bookprice:Number,
+    booktitle:String
 },{
     versionKey:false
 })
