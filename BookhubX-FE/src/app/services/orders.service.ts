@@ -45,4 +45,22 @@ export class OrdersService {
     }
   }
 
+
+
+  getBookDetails(bookId: string): Observable<any> {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+
+      return this.http.get<any>(`${this.apiUrl}/books/book/${bookId}`, { headers });
+    } else {
+      return new Observable<any>(observer => {
+        observer.error('User not authenticated');
+      });
+    }
+  }
+
 }

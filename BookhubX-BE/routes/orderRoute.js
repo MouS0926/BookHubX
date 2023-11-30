@@ -27,6 +27,9 @@ const userId=req.body.userId
             books: userCart.map(cartItem => ({
                 bookId: cartItem.bookId,
                 quantity: cartItem.quantity,
+                bookTitle: cartItem.booktitle,
+                 Bookimage: cartItem.bookimage,
+                 price:cartItem.bookprice
               })),
               address,
               totalPrice

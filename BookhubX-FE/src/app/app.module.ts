@@ -19,6 +19,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrdersDetailsComponent } from './components/orders-details/orders-details.component';
+import { DiscussionsComponent } from './components/discussions/discussions.component';
+import { DiscussionDetailsComponent } from './components/discussion-details/discussion-details.component';
+import { CommonModule } from '@angular/common';
+import { ProfiletabComponent } from './components/profiletab/profiletab.component';
+import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.component';
+import { ReadinglistComponent } from './components/readinglist/readinglist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +36,12 @@ import { OrdersDetailsComponent } from './components/orders-details/orders-detai
     CartComponent,
     CheckoutComponent,
     OrdersComponent,
-    OrdersDetailsComponent
+    OrdersDetailsComponent,
+    DiscussionsComponent,
+    DiscussionDetailsComponent,
+    ProfiletabComponent,
+    MydiscussionComponent,
+    ReadinglistComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,8 @@ import { OrdersDetailsComponent } from './components/orders-details/orders-detai
     HttpClientModule,
     StoreModule.forRoot({books: bookReducer,user: userReducer ,book: bookReducer}),
     EffectsModule.forRoot([BookEffects,UserEffects]),
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

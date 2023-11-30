@@ -8,6 +8,11 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrdersDetailsComponent } from './components/orders-details/orders-details.component';
+import { DiscussionsComponent } from './components/discussions/discussions.component';
+import { DiscussionDetailsComponent } from './components/discussion-details/discussion-details.component';
+import { ProfiletabComponent } from './components/profiletab/profiletab.component';
+import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.component';
+import { ReadinglistComponent } from './components/readinglist/readinglist.component';
 
 const routes: Routes = [
   { path: '', component: BookListComponent },
@@ -17,7 +22,12 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order', component: OrdersComponent },
-  { path: 'order/:orderId', component: OrdersDetailsComponent }
+  { path: 'order/:orderId', component: OrdersDetailsComponent },
+  { path: 'discussion', component: DiscussionsComponent },
+  { path: 'discussion/:id', component: DiscussionDetailsComponent },
+  { path: 'account', component: ProfiletabComponent },
+  { path: 'mydiscussion', component: MydiscussionComponent },
+  { path: 'myreadinglist', component: ReadinglistComponent }
 ];
 
 @NgModule({
