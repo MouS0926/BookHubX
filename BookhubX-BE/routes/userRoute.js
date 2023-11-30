@@ -86,6 +86,21 @@ userRoute.post("/logout",async(req,res)=>{
     
    
 })
+
+
+userRoute.get("/allusers",async(req,res)=>{
+  
+    try {
+        const users=await userModel.find()
+        res.status(200).send(users)
+    } catch (error) {
+        console.log(error);
+       res.status(400).send({"err":error})
+    }
+})
+
+
+
 module.exports={
     userRoute
 }

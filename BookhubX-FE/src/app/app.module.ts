@@ -25,6 +25,8 @@ import { CommonModule } from '@angular/common';
 import { ProfiletabComponent } from './components/profiletab/profiletab.component';
 import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.component';
 import { ReadinglistComponent } from './components/readinglist/readinglist.component';
+import { CommunityComponent } from './components/community/community.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,9 @@ import { ReadinglistComponent } from './components/readinglist/readinglist.compo
     DiscussionDetailsComponent,
     ProfiletabComponent,
     MydiscussionComponent,
-    ReadinglistComponent
+    ReadinglistComponent,
+    CommunityComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ const express=require("express")
 const { auth } = require("../middleware/auth.middleware");
 const { orderModel } = require("../models/orderModel");
 const { readinglistModel } = require("../models/readingList");
+const { bookModel } = require("../models/bookModel");
 
 
 
@@ -21,11 +22,18 @@ readingListRoute.post("/", auth, async (req, res) => {
       if (!hasBoughtBook) {
         return res.status(403).json({ error: "User has not bought this book" });
       }
+
+    
+      const book=await bookModel.findOne({_id:bookId})
+      
   
       // Create a new reading list entry
       const newReadingListEntry = new readinglistModel({
         userId,
         bookId,
+        image:book.image,
+        title:book.title,
+        
       });
   
       await newReadingListEntry.save();
@@ -52,9 +60,25 @@ readingListRoute.post("/", auth, async (req, res) => {
     return false;
   }
 
-  readingListRoute.get("/user/:userId", auth, async (req, res) => {
+
+  //get reading list of any user
+  readingListRoute.get("/:userid", async (req, res) => {
     try {
-      const userId = req.params.userId;
+      const {userid} = req.params
+  
+      // Fetch the user's reading list
+      const anyUserReadingList = await readinglistModel.find( {userId:userid} );
+  
+      res.status(200).json(anyUserReadingList);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json(error);
+    }
+  });
+
+  readingListRoute.get("/user", auth, async (req, res) => {
+    try {
+      const userId = req.body.userId;
   
       // Fetch the user's reading list
       const userReadingList = await readinglistModel.find({ userId });
@@ -85,6 +109,8 @@ readingListRoute.post("/", auth, async (req, res) => {
       res.status(500).json(error);
     }
   });
+
+
 
 module.exports={
     readingListRoute

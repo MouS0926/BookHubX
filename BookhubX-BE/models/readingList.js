@@ -4,6 +4,8 @@ const readinglistSchema=mongoose.Schema({
     userId:String,
     username:String,
     bookId:String,
+    image:String,
+    title:String,
     dateAdded: {
         type: Date,
         default: Date.now,

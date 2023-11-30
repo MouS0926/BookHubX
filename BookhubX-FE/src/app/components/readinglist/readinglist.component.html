@@ -47,15 +47,48 @@
     <div class="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Reading List</h3>
 
-        <select id="book" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Choose a country</option>
+        <select id="book" [(ngModel)]="selectedBookId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="" disabled selected>Select a book</option>
             <option *ngFor="let book of orderListBooks" [value]="book.bookId">{{ book.title }}</option>
-          
           </select>
-        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            Add book</button>
 
-            <!-- //all books -->
+
+
+          
+          <button type="button" (click)="addToReadingList()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Add book
+          </button>
+
+          <div class="container mt-8">
+            <h2 class="text-2xl font-semibold mb-4">User Reading List</h2>
+          
+            <table class="min-w-full bg-white border border-gray-300">
+              <thead>
+                <tr>
+                  <th class="py-2 px-4 border-b">Title</th>
+                  <th class="py-2 px-4 border-b">Image</th>
+                  <th class="py-2 px-4 border-b">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of userReadingList">
+                  <td class="py-2 px-4 border-b">{{ book.title }}</td>
+                  <td class="py-2 px-4 border-b">
+                    <img [src]="book.image" alt="{{ book.title }}" class="h-16">
+                  </td>
+                  <td class="py-2 px-4 border-b">
+                 <a [routerLink]="['/book', book.bookId]" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> View</a> 
+&nbsp;
+                 <button (click)="removeBookFromReadingList(book.bookId)" type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    delete
+                </button> 
+
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
     </div>
 </div>
 

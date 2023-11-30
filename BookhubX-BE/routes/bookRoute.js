@@ -158,6 +158,19 @@ bookRouter.get("/book/:bookid",async(req,res)=>{
 })
 
 
+//get Single Book details route
+bookRouter.get("/userbook",auth,async(req,res)=>{
+    try {
+
+       const userId=req.body.userId
+
+        let allbooks=await bookModel.find({userId})
+        res.status(200).send(allbooks)
+    } catch (error) {
+        res.status(400).send({"error":error})
+    }
+})
+
 module.exports={
     bookRouter
 }

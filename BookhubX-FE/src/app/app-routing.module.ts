@@ -13,6 +13,8 @@ import { DiscussionDetailsComponent } from './components/discussion-details/disc
 import { ProfiletabComponent } from './components/profiletab/profiletab.component';
 import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.component';
 import { ReadinglistComponent } from './components/readinglist/readinglist.component';
+import { CommunityComponent } from './components/community/community.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', component: BookListComponent },
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: 'discussion/:id', component: DiscussionDetailsComponent },
   { path: 'account', component: ProfiletabComponent },
   { path: 'mydiscussion', component: MydiscussionComponent },
-  { path: 'myreadinglist', component: ReadinglistComponent }
+  { path: 'myreadinglist', component: ReadinglistComponent },
+  { path: 'community', component: CommunityComponent },
+  { path: 'userprofile/:userId', component: UserDetailsComponent }
 ];
 
 @NgModule({
