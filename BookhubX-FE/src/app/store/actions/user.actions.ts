@@ -25,7 +25,7 @@ export const loginUser = createAction(
   
   export const loginUserSuccess = createAction(
     '[User] Login User Success',
-    props<{ username: string, token: string }>()
+    props<{ username: string, token: string,userrole:string }>()
   );
   
   export const loginUserFailure = createAction(

@@ -30,3 +30,8 @@ export const selectUserLoggingIn = createSelector(
     (state) => state.username
   );
 
+  export const selectUserRole = createSelector(
+    selectUserState,
+    (state) => state.userrole
+  );
+

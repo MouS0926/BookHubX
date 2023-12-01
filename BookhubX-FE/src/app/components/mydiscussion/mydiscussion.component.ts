@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, map } from 'rxjs';
 import { DiscussionService } from 'src/app/services/discussion.service';
+import * as UserSelectors from '../../store/selectors/user.selectors';
+
 
 @Component({
   selector: 'app-mydiscussion',
@@ -13,7 +17,23 @@ export class MydiscussionComponent implements OnInit {
   editedTitle: string = '';
   editedContent: string = '';
 
-  constructor(private discussionService:DiscussionService){}
+
+  //login 
+  isLoggedIn$: Observable<boolean>;
+  username$: Observable<string>;
+  userrole$:Observable<string>
+
+  constructor(private discussionService:DiscussionService,private store: Store){
+    this.isLoggedIn$ = this.store.select(UserSelectors.selectIsLoggedIn);
+    
+      this.userrole$= this.store.select(UserSelectors.selectUserRole).pipe(
+        map(userrole => userrole ?? '')  
+      );
+
+    this.username$ = this.store.select(UserSelectors.selectUsername).pipe(
+      map(username => username ?? '')  
+    );
+  }
 
  
 

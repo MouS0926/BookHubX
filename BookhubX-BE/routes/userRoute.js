@@ -45,7 +45,7 @@ userRoute.post("/login",async(req,res)=>{
                 if(result)
                 {
                     var token = jwt.sign({ userId:user._id,username:user.username,userrole:user.role }, 'bookhub');
-                    res.status(200).send({"msg":"Logedd in Successfully",token,username:user.username})
+                    res.status(200).send({"msg":"Logedd in Successfully",token,username:user.username,userrole:user.role})
                 }
                 else{
                     res.status(400).send("Invalid password") 

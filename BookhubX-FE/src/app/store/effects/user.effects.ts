@@ -59,12 +59,12 @@ loginUser$ = createEffect(() =>
         this.userService.loginUser(userDetails).pipe(
           map((response) => {
             if (response.status === 200) {
-              const { token, username } = response.body;
+              const { token, username,userrole } = response.body;
               localStorage.setItem('token', response.body.token);
               this.handleLoginSuccess()
               this.router.navigate(['/']);
 
-              return UserActions.loginUserSuccess({ username, token });
+              return UserActions.loginUserSuccess({ username, token,userrole });
             } else {
               return UserActions.loginUserFailure({ error: { msg: response.body.msg } });
             }

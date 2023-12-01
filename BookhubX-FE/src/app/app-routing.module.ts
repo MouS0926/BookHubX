@@ -15,6 +15,7 @@ import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.co
 import { ReadinglistComponent } from './components/readinglist/readinglist.component';
 import { CommunityComponent } from './components/community/community.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 const routes: Routes = [
   { path: '', component: BookListComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'mydiscussion', component: MydiscussionComponent },
   { path: 'myreadinglist', component: ReadinglistComponent },
   { path: 'community', component: CommunityComponent },
-  { path: 'userprofile/:userId', component: UserDetailsComponent }
+  { path: 'userprofile/:userId', component: UserDetailsComponent },
+  { path: 'addbook', component: AddBookComponent }
 ];
 
 @NgModule({

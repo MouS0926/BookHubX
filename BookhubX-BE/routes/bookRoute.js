@@ -158,7 +158,7 @@ bookRouter.get("/book/:bookid",async(req,res)=>{
 })
 
 
-//get Single Book details route
+//get user's Book details route
 bookRouter.get("/userbook",auth,async(req,res)=>{
     try {
 

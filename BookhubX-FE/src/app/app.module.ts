@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { bookReducer } from './store/reducers/book.reducer';
 import { BookEffects } from './store/effects/book.effects';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
 import { userReducer } from './store/reducers/user.reducer';
 import { UserEffects } from './store/effects/user.effects';
@@ -27,6 +27,7 @@ import { MydiscussionComponent } from './components/mydiscussion/mydiscussion.co
 import { ReadinglistComponent } from './components/readinglist/readinglist.component';
 import { CommunityComponent } from './components/community/community.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     MydiscussionComponent,
     ReadinglistComponent,
     CommunityComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     StoreModule.forRoot({books: bookReducer,user: userReducer ,book: bookReducer}),
     EffectsModule.forRoot([BookEffects,UserEffects]),
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

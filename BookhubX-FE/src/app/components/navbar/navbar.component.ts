@@ -15,9 +15,15 @@ export class NavbarComponent {
 
   isLoggedIn$: Observable<boolean>;
   username$: Observable<string>;
+  userrole$:Observable<string>
 
   constructor(private store: Store) {
     this.isLoggedIn$ = this.store.select(UserSelectors.selectIsLoggedIn);
+    
+      this.userrole$= this.store.select(UserSelectors.selectUserRole).pipe(
+        map(userrole => userrole ?? '')  
+      );
+
     this.username$ = this.store.select(UserSelectors.selectUsername).pipe(
       map(username => username ?? '')  // Use nullish coalescing to provide a default value
     );

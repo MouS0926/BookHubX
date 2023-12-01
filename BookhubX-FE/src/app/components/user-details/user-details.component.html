@@ -39,15 +39,18 @@
     <!-- Books Section -->
     <div>
         <h3 class="text-xl font-semibold mb-4">Books</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <!-- Sample book cards -->
-            <div class="bg-blue-100 p-4 rounded-md shadow-md">
-                <img src="https://placekitten.com/200/300" alt="Book Cover" class="w-full h-32 object-cover mb-4">
-                <h4 class="text-lg font-semibold text-blue-900">Book 1</h4>
-                <p class="text-gray-600">Author: Author Name</p>
+        <div *ngIf="userBooks.length > 0; else noBooks">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div *ngFor="let book of userBooks" class="bg-blue-100 p-4 rounded-md shadow-md">
+                    <img [src]="book.image" alt="Book Cover" class="w-full h-32 object-cover mb-4">
+                    <h4 class="text-lg font-semibold text-blue-900">{{ book.title }}</h4>
+                    <p class="text-gray-600">Author: {{ book.author }}</p>
+                </div>
             </div>
-           
         </div>
+        <ng-template #noBooks>
+            <p>No books added yet.</p>
+        </ng-template>
     </div>
 
 </div>
