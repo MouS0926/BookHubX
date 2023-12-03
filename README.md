@@ -43,21 +43,15 @@
       - They also have the authority to assign or modify user roles.
    - **4.2 Manage Books:**
       - Admins can manage the book catalog, adding new books, updating existing ones, or removing books.
-   - **4.3 Moderate Community Content:**
-      - Admins can moderate community discussions, reviews, and comments to ensure adherence to guidelines.
-      - They can remove inappropriate content or take corrective actions.
+ 
 
 5. **Intelligent Chatbot:**
    - **5.1 Book Recommendations:**
-      - The chatbot provides personalized book recommendations based on user preferences and community trends.
-   - **5.2 Author Information:**
-      - Users can ask the chatbot for information about specific authors, including their works and contributions.
-   - **5.3 General Literary Queries:**
+      - The chatbot provides personalized book recommendations based on given genre or author.
+   - **5.2 General Literary Queries:**
       - The chatbot assists users with general literary queries, enhancing the overall user experience.
 
-6. **Discussion Tags:**
-   - While creating discussions, users can add tags like genre or author.
-   - Frontend utilizes badges, and the [multiselect.as](http://multiselect.as) library enables multiple genres per discussion.
+
 
 ---
 
