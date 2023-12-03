@@ -2,7 +2,7 @@
 
 ## Project Description
 
-**"BookHubX"** is an innovative online platform that seamlessly combines a feature-rich bookstore with a dynamic reading community. Built using Angular for the frontend, this project aims to offer users an immersive experience in discovering, purchasing, and engaging with books, fostering a community-driven environment for discussions, reviews, and recommendations. The backend can be developed using either Java or Node.js, and the database can be MySQL or MongoDB. Additionally, the project features an intelligent chatbot service powered by GPT to assist users in finding books and authors based on their preferences.
+**"BookHubX"** is an innovative online platform that seamlessly combines a feature-rich bookstore with a dynamic reading community. Built using Angular for the frontend, this project aims to offer users an immersive experience in discovering, purchasing, and engaging with books, fostering a community-driven environment for discussions, reviews, and recommendations. The backend is developed using either Node.js, and  used  MongoDB for the database. Additionally, the project features an intelligent chatbot service powered by GPT to assist users in finding books and authors based on their preferences.
 
 ---
 
