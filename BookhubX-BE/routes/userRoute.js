@@ -87,7 +87,20 @@ userRoute.post("/logout",async(req,res)=>{
    
 })
 
+//get user profile details for community
+userRoute.get("/userdetails/:userId",async(req,res)=>{
+  
+    try {
+        const {userId}=req.params
+        const users=await userModel.findOne({_id:userId})
+        res.status(200).send(users)
+    } catch (error) {
+        console.log(error);
+       res.status(400).send({"err":error})
+    }
+})
 
+//userdetails
 userRoute.get("/allusers",async(req,res)=>{
   
     try {

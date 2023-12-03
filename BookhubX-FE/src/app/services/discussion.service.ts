@@ -55,6 +55,12 @@ export class DiscussionService {
 
      return this.http.get(`${this.apiUrl}/discussion/mydiscussion`,  { headers });
   }
+ 
+
+//get discussion of user for community
+  getUserdiscussionsCommunity(userId:string):Observable<any>{
+   return this.http.get(`${this.apiUrl}/discussion/userdiscussion/${userId}`);
+  }
 
 
   updateDiscussion(discussionId: string, updatedData: any): Observable<any> {

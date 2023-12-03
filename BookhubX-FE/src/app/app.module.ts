@@ -28,6 +28,9 @@ import { ReadinglistComponent } from './components/readinglist/readinglist.compo
 import { CommunityComponent } from './components/community/community.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatButtonComponent } from './components/chat-button/chat-button.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,10 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     ReadinglistComponent,
     CommunityComponent,
     UserDetailsComponent,
-    AddBookComponent
+    AddBookComponent,
+    ChatComponent,
+    ChatButtonComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

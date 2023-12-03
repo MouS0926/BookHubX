@@ -46,6 +46,20 @@ discussionRoute.get("/mydiscussion",auth,async(req,res)=>{
   
   })
 
+  //get user all discussion for community page without authentication
+discussionRoute.get("/userdiscussion/:userId",async(req,res)=>{
+  
+  try {
+    const {userId}=req.params
+        const discussions=await discussionModel.find({userId:userId})
+        
+        res.status(200).send(discussions)
+    } catch (error) {
+        res.status(400).send({"err":error})
+    }
+  
+  })
+
 
 //single discussion
 discussionRoute.get("/:discussionId",async(req,res)=>{

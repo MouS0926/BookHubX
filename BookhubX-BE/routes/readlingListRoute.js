@@ -1,8 +1,9 @@
 const express=require("express")
-const { auth } = require("../middleware/auth.middleware");
+
 const { orderModel } = require("../models/orderModel");
 const { readinglistModel } = require("../models/readingList");
 const { bookModel } = require("../models/bookModel");
+const { auth } = require("../middleware/auth.middleware");
 
 
 
@@ -61,8 +62,8 @@ readingListRoute.post("/", auth, async (req, res) => {
   }
 
 
-  //get reading list of any user
-  readingListRoute.get("/:userid", async (req, res) => {
+  //get reading list of any user without authorization for user side
+  readingListRoute.get("/all/:userid", async (req, res) => {
     try {
       const {userid} = req.params
   
@@ -76,20 +77,26 @@ readingListRoute.post("/", auth, async (req, res) => {
     }
   });
 
+
+
+
+ 
+//get reading list of any user with authorization for user's personal side
+
   readingListRoute.get("/user", auth, async (req, res) => {
     try {
-      const userId = req.body.userId;
-  
-      // Fetch the user's reading list
-      const userReadingList = await readinglistModel.find({ userId });
-  
-      res.status(200).json(userReadingList);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json(error);
-    }
-  });
+        // Fetch the user's reading list
+        const userId = req.body.userId; // This is where the issue might be
 
+        const userReadingList = await readinglistModel.find({ userId });
+
+        res.status(200).json(userReadingList);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+});
 
   readingListRoute.delete("/remove/:bookId", auth, async (req, res) => {
     try {

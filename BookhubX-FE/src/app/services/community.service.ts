@@ -15,12 +15,19 @@ export class CommunityService {
     return this.http.get<any[]>(`${this.apiUrl}/user/allusers`);
   }
 
- getUserBooks(): Observable<any> {
+ getUserBooks(userId:string): Observable<any> {
   const token = localStorage.getItem('token');
 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<any>(`${this.apiUrl}/books/userbook`,{headers});
+    return this.http.get<any>(`${this.apiUrl}/books/userbook/${userId}`,{headers});
   }
+
+  getUserProfileBooks(): Observable<any> {
+    const token = localStorage.getItem('token');
+  
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      return this.http.get<any>(`${this.apiUrl}/books/userbook`,{headers});
+    }
 
   addBook(bookData: any): Observable<any> {
     const token = localStorage.getItem('token');
@@ -43,5 +50,20 @@ export class CommunityService {
     return this.http.get<any>(`${this.apiUrl}/books/book/${bookId}`,{headers});
   }
 
+  //delete
+  // deleteBook(bookId: string): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  //   return this.http.delete<any>(`${this.apiUrl}/books/delete/${bookId}`, { headers });
+  // }
 
+
+  
+  deleteBook(bookId: string, userrole: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const params = { userrole }; // Include userrole in the request params
+
+    return this.http.delete<any>(`${this.apiUrl}/books/delete/${bookId}`, { headers, params });
+  }
 }

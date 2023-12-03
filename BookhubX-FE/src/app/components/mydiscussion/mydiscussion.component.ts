@@ -33,6 +33,7 @@ export class MydiscussionComponent implements OnInit {
     this.username$ = this.store.select(UserSelectors.selectUsername).pipe(
       map(username => username ?? '')  
     );
+    
   }
 
  

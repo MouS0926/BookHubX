@@ -7,7 +7,7 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="toggleFormVisibility()">Add Discussion</button>
       
         <div *ngIf="isFormVisible">
-          <form class="max-w-md mx-auto mt-4 bg-white p-6 rounded-md shadow-md">
+          <form class="max-w-md mx-auto mt-4 bg-pink-200 p-6 rounded-md shadow-md">
             <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
             <input type="text" id="title" name="title" [(ngModel)]="discussionData.title" required
                    class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">

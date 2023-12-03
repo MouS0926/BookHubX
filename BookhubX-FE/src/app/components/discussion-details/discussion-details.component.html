@@ -26,7 +26,7 @@
                   placeholder="Write a comment..." required></textarea>
           </div>
           <button (click)="addComment()"
-              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Post comment
           </button>
       </form>
@@ -36,8 +36,9 @@
         <footer class="flex justify-between items-center mb-2">
             <div class="flex items-center">
                 <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">👤{{comments.username}} </p>
-                <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-03-12"
-                        title="March 12th, 2022">Mar. 12, 2022</time></p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <!-- <time pubdate datetime="2022-03-12"
+                        title="March 12th, 2022">Mar. 12, 2022</time></p> -->
             </div>
             <button id="dropdownComment3Button" data-dropdown-toggle="dropdownComment3"
                 class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

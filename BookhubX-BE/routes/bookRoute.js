@@ -158,11 +158,11 @@ bookRouter.get("/book/:bookid",async(req,res)=>{
 })
 
 
-//get user's Book details route
-bookRouter.get("/userbook",auth,async(req,res)=>{
+//user's details/profile page get  Book  route without authentication for community
+bookRouter.get("/userbook/:userId",async(req,res)=>{
     try {
-
-       const userId=req.body.userId
+//get this userid in front end from url params
+       const {userId}=req.params
 
         let allbooks=await bookModel.find({userId})
         res.status(200).send(allbooks)
@@ -171,6 +171,19 @@ bookRouter.get("/userbook",auth,async(req,res)=>{
     }
 })
 
+
+//get user book foruser own profile with authentication
+bookRouter.get("/userbook",auth,async(req,res)=>{
+    try {
+
+       const {userId}=req.body
+
+        let allbooks=await bookModel.find({userId})
+        res.status(200).send(allbooks)
+    } catch (error) {
+        res.status(400).send({"error":error})
+    }
+})
 module.exports={
     bookRouter
 }

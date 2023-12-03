@@ -22,6 +22,11 @@ export class UserService {
     const url = `${this.baseUrl}/user/login`;
     return this.http.post(url, userDetails, { observe: 'response' });
   }
+ 
+  getSingleUserDetails(userId:string):Observable<any>{
+    const url = `${this.baseUrl}/user/userdetails/${userId}`;
+    return this.http.get(url);
+  }
 
 
 }

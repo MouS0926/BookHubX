@@ -30,6 +30,11 @@ editBookForm: FormGroup;
  showEditForm: boolean = false;
 selectedBookId: string | null = null;
 
+   // delete confirmation
+   showDeleteConfirmation: boolean = false;
+   selectedDeleteBookId: string | null = null;
+
+
  constructor(private fb: FormBuilder,private discussionService:DiscussionService,
   private store: Store,
   private communityService:CommunityService){
@@ -85,7 +90,7 @@ onSubmit() {
   this.communityService.addBook(bookData).subscribe(
     response => {
       alert("One new Book is added")
-      this.getUsersBook()
+       this.getUsersBook()
       console.log('Book added successfully:', response);
       // You can add a success message or navigate to another page on success
     },
@@ -94,6 +99,8 @@ onSubmit() {
       // Handle error, show error message, etc.
     }
   );
+ 
+
 }
 
 onCancel() {
@@ -109,8 +116,8 @@ toggleForm() {
   }
 
 getUsersBook(){
-
-  this.communityService.getUserBooks().subscribe(
+  
+  this.communityService.getUserProfileBooks().subscribe(
     response => {
       
       this.userbooks=response
@@ -177,7 +184,7 @@ onSubmitEdit() {
       console.log('Book updated successfully:', response);
       this.editBookForm.reset();
       this.showEditForm = false;
-      this.getUsersBook();
+      // this.getUsersBook();
     },
     error => {
       console.error('Error updating book:', error);
@@ -190,5 +197,39 @@ onCancelEdit() {
   this.showEditForm = false;
 }
 
+
+//add delete functionality
+
+
+deleteBook(bookId: string) {
+  this.showDeleteConfirmation = true;
+  this.selectedDeleteBookId = bookId;
+}
+
+confirmDelete() {
+  if (!this.selectedDeleteBookId) {
+    console.error('No book selected for deletion.');
+    return;
+  }
+
+  const userrole = this.userrole; 
+  // Call your deleteBook method from the service
+  this.communityService.deleteBook(this.selectedDeleteBookId,userrole).subscribe(
+    response => {
+      console.log('Book deleted successfully:', response);
+      this.showDeleteConfirmation = false;
+      this.selectedDeleteBookId = null;
+      this.getUsersBook();
+    },
+    error => {
+      console.error('Error deleting book:', error);
+    }
+  );
+}
+
+cancelDelete() {
+  this.showDeleteConfirmation = false;
+  this.selectedDeleteBookId = null;
+}
 
 }
