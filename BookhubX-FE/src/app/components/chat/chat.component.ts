@@ -33,11 +33,23 @@ export class ChatComponent {
     
     this.chatService.sendMessage(this.clientMsg).subscribe(
       (response) => {
-        // Handle the response from the backend, e.g., update chatMessages array
-        console.log(this.chatMessages);
-        this.books = response;
+      
+        // console.log(this.chatMessages);
 
-        this.chatMessages.push(...this.books.map(book => `Bot: ${book.title}`));
+
+        if (response && response.length > 0) {
+          this.books = response;
+          this.chatMessages.push(...this.books.map(book => `Bot: ${book.title || 'Book  Not Available'}`));
+        } else {
+          this.chatMessages.push('Bot: There is no such book available right now');
+        }
+
+
+
+
+        // this.books = response;
+
+        // this.chatMessages.push(...this.books.map(book => `Bot: ${book.title}`));
         // this.chatMessages.push(...response);
        
         
@@ -49,6 +61,14 @@ export class ChatComponent {
     );
   }
 
+  isUserMessage(message: string): boolean {
+    return message.startsWith('User:');
+  }
+
+  isBotMessage(message: string): boolean {
+    return message.startsWith('Bot:');
+  }
+  
 
   }
 

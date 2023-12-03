@@ -31,6 +31,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatButtonComponent } from './components/chat-button/chat-button.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { UserReadinglistComponent } from './components/user-readinglist/user-readinglist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     AddBookComponent,
     ChatComponent,
     ChatButtonComponent,
-    CarouselComponent
+    CarouselComponent,
+    UserReadinglistComponent
   ],
   imports: [
     BrowserModule,

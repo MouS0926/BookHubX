@@ -13,7 +13,7 @@ export class UserDetailsComponent implements OnInit{
   userBooks: any[] = [];
   userDiscussion:any[]=[]
   userDetails:{username:string,email:string} ={username:"",email:""}
-
+  userReadingList:any[]=[]
 
   constructor(private communitySerivce: CommunityService, private route: ActivatedRoute,
     private discussionService:DiscussionService,private userService:UserService
@@ -24,7 +24,7 @@ ngOnInit(): void {
   this.loadUserBooks(userId!);
   this.loadUserDuscussion(userId!)
   this.loadUserDetails(userId!)
- 
+ this.loadUserReadingList(userId!)
   
 }
 
@@ -57,6 +57,19 @@ ngOnInit(): void {
     this.userService.getSingleUserDetails(userId).subscribe(
       (userDetails) => {
         this.userDetails = userDetails;
+       
+        
+      },
+      (error) => {
+        console.error('Error fetching user books:', error);
+      }
+    );
+  }
+
+  loadUserReadingList(userId:string):void{
+    this.communitySerivce.getreadonglistOfuser(userId).subscribe(
+      (readinglist) => {
+        this.userReadingList = readinglist;
        
         
       },

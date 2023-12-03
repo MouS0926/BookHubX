@@ -50,12 +50,6 @@ export class CommunityService {
     return this.http.get<any>(`${this.apiUrl}/books/book/${bookId}`,{headers});
   }
 
-  //delete
-  // deleteBook(bookId: string): Observable<any> {
-  //   const token = localStorage.getItem('token');
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   return this.http.delete<any>(`${this.apiUrl}/books/delete/${bookId}`, { headers });
-  // }
 
 
   
@@ -66,4 +60,10 @@ export class CommunityService {
 
     return this.http.delete<any>(`${this.apiUrl}/books/delete/${bookId}`, { headers, params });
   }
+
+  //readinglist
+  getreadonglistOfuser(userId:string):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/readinglist/all/${userId}`);
+  }
+  
 }

@@ -32,16 +32,20 @@
 .inputClass{
     width: 100%;
     position: absolute;
-    bottom: 0;
+    /* bottom: 0; */
 }
-.chatMsg{
-    background-color: rgb(96, 96, 179);
+
+.user-message ,.bot-message{
+    background-color: rgb(49, 83, 162); /* Set the background color for user messages */
     color: #fff;
     padding: 5px;
     border-radius: 5px;
     margin-top:3px ;
-
-}
+  }
+  
+  .bot-message {
+    background-color: #ff5c2b; /* Set the background color for bot messages */
+  }
 .chatMsgbox
 {
     padding: 10px;

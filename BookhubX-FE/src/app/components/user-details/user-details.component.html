@@ -51,7 +51,7 @@
 
     <!-- Books Section -->
     <div>
-        <h3 class="text-xl font-semibold mb-4">Books</h3>
+        <h3 class="text-xl font-semibold mb-4">Books Published By : {{userDetails.username}}</h3>
         <div *ngIf="userBooks.length > 0; else noBooks">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <div *ngFor="let book of userBooks" class="bg-blue-100 p-4 rounded-md shadow-md">
@@ -68,5 +68,29 @@
             <p>No books added yet.</p>
         </ng-template>
     </div>
+
+
+<br>
+ <!-- Reading List -->
+ <div>
+    <h3 class="text-xl font-semibold mb-4">Reading List</h3>
+    <div *ngIf="userReadingList.length > 0; else noReadingList">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div *ngFor="let book of userReadingList" class="bg-blue-100 p-4 rounded-md shadow-md">
+                <img [src]="book.image" alt="Book Cover" class="w-full h-32 object-cover mb-4">
+
+            <a [routerLink]="['/book', book._id]"> 
+                <h4 class="text-lg font-semibold text-blue-900">{{ book.title }}</h4>
+            </a>   
+                
+            </div>
+        </div>
+    </div>
+    <ng-template #noReadingList>
+        <p>No books added to reading List yet.</p>
+    </ng-template>
+</div>
+
+
 
 </div>

@@ -61,19 +61,19 @@
     </button>
   
     <div id="chatbar" class="chat_box animated fadeInUp" [ngClass]="{ 'toggle': isChatOpen }">
-      <div class="chat_box_header">
-        MESSAGES
+      <div class="chat_box_header p-2">
+       ChatBOT
       </div>
       <div id="chatBody" class="chat_box_body chatMsgbox">
-        <div *ngFor="let message of chatMessages" class="chatMsg">
+        <div *ngFor="let message of chatMessages" [ngClass]="{'user-message': isUserMessage(message), 'bot-message': isBotMessage(message)}">
           {{ message }}
         </div>
   
-        <ng-container *ngIf="chatMessages.length === 0; else bookList">
+        <!-- <ng-container *ngIf="books.length === 0; else bookList">
           <div class="chatMsg">No books found.</div>
-        </ng-container>
+        </ng-container> -->
   
-        <ng-template #bookList>
+        <!-- <ng-template #bookList> -->
           <div *ngFor="let book of books" class="book-card">
             <div class="chatMsg">
               <!-- <img src="{{ book.coverImageUrl }}" alt="{{ book.title }} Cover Image" class="card-img-top"> -->
@@ -87,7 +87,7 @@
               </div>
             </div>
           </div>
-        </ng-template>
+        <!-- </ng-template> -->
       </div>
   
       <form class="inputClass" (ngSubmit)="send()">
