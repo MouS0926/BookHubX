@@ -64,8 +64,8 @@
 ## Technology Used
 
 - **Frontend:** Angular
-- **Backend Options:** Java or Node.js
-- **Database Options:** MySQL or MongoDB
+- **Backend Options:** Node.js,Express JS
+- **Database Options:**  MongoDB
 - **Chatbot Service:** GPT
 
 ---
@@ -79,10 +79,10 @@
 ## Run Locally
 
 1. Clone the repository.
-2. Install dependencies using `npm install` (for Angular) and `npm run install-server` (for Java/Node.js backend).
-3. Set up the database according to the chosen option (MySQL or MongoDB).
+2. Install dependencies using `npm install` (for Angular) and `npm run install` (for Node.js backend).
+3. Set up the database  (MongoDB).
 4. Configure the backend connection details.
-5. Run the frontend and backend servers using `ng serve` and `npm run start-server`, respectively.
+5. Run the frontend and backend servers using `ng serve` and `npm run server`, respectively.
 
 ---
 
