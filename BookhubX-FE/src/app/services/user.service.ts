@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://bookhubx-api.onrender.com';
 
   constructor(private http: HttpClient) {}
 

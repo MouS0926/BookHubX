@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CommunityService {
 
-  private apiUrl = 'http://localhost:8080'; // Adjust the API URL
+  private apiUrl = 'https://bookhubx-api.onrender.com'; // Adjust the API URL
 
   constructor(private http: HttpClient) { }
 

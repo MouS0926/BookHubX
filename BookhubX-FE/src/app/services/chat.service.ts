@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://bookhubx-api.onrender.com';
   constructor(private http: HttpClient) {}
 
   sendMessage(message: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/chatbot`, { message });
   }
-  
+
 }

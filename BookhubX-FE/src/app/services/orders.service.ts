@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrdersService {
-  private apiUrl = 'http://localhost:8080'
+  private apiUrl = 'https://bookhubx-api.onrender.com'
 
   constructor(private http: HttpClient) { }
 

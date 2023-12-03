@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DiscussionService {
 
-  private apiUrl = 'http://localhost:8080'; 
+  private apiUrl = 'https://bookhubx-api.onrender.com'; 
 
   constructor(private http: HttpClient) { }
 
