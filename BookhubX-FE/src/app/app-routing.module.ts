@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'community', component: CommunityComponent,canActivate: [authGuard] },
   { path: 'userprofile/:userId', component: UserDetailsComponent },
   { path: 'addbook', component: AddBookComponent,canActivate: [authGuard] },
-  { path: 'allorder', component: AllOrderComponent }
+  { path: 'allorder', component: AllOrderComponent,canActivate: [authGuard]}
 ];
 
 @NgModule({
