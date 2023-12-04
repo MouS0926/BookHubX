@@ -1,5 +1,5 @@
 # BookHubX
-
+<img src="https://github.com/MouS0926/BookHubX/blob/main/screenshots/logo.png" width="200px" alt="BookHubX-Logo" />
 ## Project Description
 
 **"BookHubX"** is an innovative online platform that seamlessly combines a feature-rich bookstore with a dynamic reading community. Built using Angular for the frontend, this project aims to offer users an immersive experience in discovering, purchasing, and engaging with books, fostering a community-driven environment for discussions, reviews, and recommendations. The backend is developed using either Node.js, and  used  MongoDB for the database. Additionally, the project features an intelligent chatbot service powered by GPT to assist users in finding books and authors based on their preferences.
@@ -73,7 +73,7 @@
 ## Run Locally
 
 1. Clone the repository.
-2. Install dependencies using `npm install` (for Angular) and `npm run install` (for Node.js backend).
+2. Install dependencies using `npm install --force` (for Angular) and `npm run install` (for Node.js backend).
 3. Set up the database  (MongoDB).
 4. Configure the backend connection details.
 5. Run the frontend and backend servers using `ng serve` and `npm run server`, respectively.
@@ -85,5 +85,27 @@
 ![Screenshot 1](https://github.com/MouS0926/BookHubX/blob/main/screenshots/home.jpeg)
 *Landing Page*
 
-![Screenshot 2](/path/to/screenshot2.png)
-*Caption for Screenshot 2.*
+![Screenshot 2](https://github.com/MouS0926/BookHubX/blob/main/screenshots/book-list.jpeg)
+*Book-List*
+
+![Screenshot 3](https://github.com/MouS0926/BookHubX/blob/main/screenshots/book-details.jpeg)
+*Book-LDetails-Page*
+
+
+![Screenshot 4](https://github.com/MouS0926/BookHubX/blob/main/screenshots/cart.jpeg)
+*Cart-Page*
+
+
+![Screenshot 5](https://github.com/MouS0926/BookHubX/blob/main/screenshots/checkout.jpeg)
+*Checkout-Page*
+
+![Screenshot 6](https://github.com/MouS0926/BookHubX/blob/main/screenshots/orders.jpeg)
+*Order-List*
+
+![Screenshot 7](https://github.com/MouS0926/BookHubX/blob/main/screenshots/discussion.jpeg)
+*Discussion-List*
+
+![Screenshot 8](https://github.com/MouS0926/BookHubX/blob/main/screenshots/reading-list.jpeg)
+*Reading-List*
+
+
