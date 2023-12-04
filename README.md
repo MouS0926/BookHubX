@@ -69,13 +69,31 @@
 
 ---
 
+## Sample User Credentials
+
+**Reader Credentials:** <br>
+Email: amit@mail.com
+Password: amit
+<br><br>
+**Author Credentials:** <br>
+Email: nikita@mail.com
+Password: nikita1
+<br><br>
+**Admin Credentials:** <br>
+Email: admin@mail.com
+Password: admin
+
+
+
+---
+
 ## Run Locally
 
 1. Clone the repository.
 2. Install dependencies using `npm install --force` (for Angular) and `npm run install` (for Node.js backend).
 3. Set up the database  (MongoDB).
 4. Configure the backend connection details.
-5. Run the frontend and backend servers using `ng serve` and `npm run server`, respectively.
+5. Run the frontend and backend servers using `ng serve --open` and `npm run server`, respectively.
 
 ---
 
