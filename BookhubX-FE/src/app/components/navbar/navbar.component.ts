@@ -4,6 +4,7 @@ import * as UserSelectors from '../../store/selectors/user.selectors';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ export class NavbarComponent {
   username$: Observable<string>;
   userrole$:Observable<string>
 
-  constructor(private store: Store) {
+  constructor(private store: Store,private router: Router) {
     this.isLoggedIn$ = this.store.select(UserSelectors.selectIsLoggedIn);
     
       this.userrole$= this.store.select(UserSelectors.selectUserRole).pipe(
@@ -27,6 +28,11 @@ export class NavbarComponent {
     this.username$ = this.store.select(UserSelectors.selectUsername).pipe(
       map(username => username ?? '')  // Use nullish coalescing to provide a default value
     );
+  }
+  logout(){
+    localStorage.removeItem("token");
+    this.router.navigate(['/'])
+    window.location.reload();
   }
 
   
