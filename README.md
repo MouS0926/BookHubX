@@ -82,8 +82,8 @@
 
 ## Screenshots
 
-![Screenshot 1](/path/to/screenshot1.png)
-*Caption for Screenshot 1.*
+![Screenshot 1](https://github.com/MouS0926/BookHubX/blob/main/screenshots/home.jpeg)
+*Landing Page*
 
 ![Screenshot 2](/path/to/screenshot2.png)
 *Caption for Screenshot 2.*
