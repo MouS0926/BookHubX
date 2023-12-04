@@ -64,7 +64,12 @@
       <div class="chat_box_header p-2">
        ChatBOT
       </div>
+      
       <div id="chatBody" class="chat_box_body chatMsgbox">
+        <div class="bot-message">
+          Bot:  Hi,Welcome to BookHubX! I'm your bookish companion for recommendations.How Can I help You?
+      </div>
+        
         <div *ngFor="let message of chatMessages" [ngClass]="{'user-message': isUserMessage(message), 'bot-message': isBotMessage(message)}">
           {{ message }}
         </div>

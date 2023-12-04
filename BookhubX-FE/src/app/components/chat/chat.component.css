@@ -46,13 +46,18 @@
   .bot-message {
     background-color: #ff5c2b; /* Set the background color for bot messages */
   }
+  .book-card{
+    background-color: #5A5EB9;
+    padding: 3px;
+  }
 .chatMsgbox
 {
     padding: 10px;
     max-width: 100%;
     height: 300px;
     overflow-y: scroll;
-    background-color: rgb(174, 177, 177);
+    color: aliceblue;
+    background-color: rgb(195, 247, 247);
 }
 .chat_box {
       max-height: 100%;
