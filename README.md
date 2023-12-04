@@ -1,4 +1,3 @@
-# BookHubX
 <img src="https://github.com/MouS0926/BookHubX/blob/main/screenshots/logo.png" width="200px" alt="BookHubX-Logo" />
 ## Project Description
 
