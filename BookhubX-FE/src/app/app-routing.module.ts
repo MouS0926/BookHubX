@@ -17,6 +17,7 @@ import { CommunityComponent } from './components/community/community.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { authGuard } from './auth.guard';
+import { AllOrderComponent } from './components/all-order/all-order.component';
 
 const routes: Routes = [
   { path: '', component: BookListComponent },
@@ -27,14 +28,15 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
   { path: 'order', component: OrdersComponent,canActivate: [authGuard] },
   { path: 'order/:orderId', component: OrdersDetailsComponent,canActivate: [authGuard] },
-  { path: 'discussion', component: DiscussionsComponent },
-  { path: 'discussion/:id', component: DiscussionDetailsComponent },
+  { path: 'discussion', component: DiscussionsComponent,canActivate: [authGuard] },
+  { path: 'discussion/:id', component: DiscussionDetailsComponent,canActivate: [authGuard] },
   { path: 'account', component: ProfiletabComponent },
   { path: 'mydiscussion', component: MydiscussionComponent,canActivate: [authGuard] },
   { path: 'myreadinglist', component: ReadinglistComponent,canActivate: [authGuard] },
   { path: 'community', component: CommunityComponent,canActivate: [authGuard] },
   { path: 'userprofile/:userId', component: UserDetailsComponent },
-  { path: 'addbook', component: AddBookComponent,canActivate: [authGuard] }
+  { path: 'addbook', component: AddBookComponent,canActivate: [authGuard] },
+  { path: 'allorder', component: AllOrderComponent }
 ];
 
 @NgModule({

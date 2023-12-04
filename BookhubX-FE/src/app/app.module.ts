@@ -32,6 +32,8 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ChatButtonComponent } from './components/chat-button/chat-button.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { UserReadinglistComponent } from './components/user-readinglist/user-readinglist.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AllOrderComponent } from './components/all-order/all-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,9 @@ import { UserReadinglistComponent } from './components/user-readinglist/user-rea
     ChatComponent,
     ChatButtonComponent,
     CarouselComponent,
-    UserReadinglistComponent
+    UserReadinglistComponent,
+    FooterComponent,
+    AllOrderComponent
   ],
   imports: [
     BrowserModule,

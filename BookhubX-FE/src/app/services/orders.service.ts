@@ -63,4 +63,11 @@ export class OrdersService {
     }
   }
 
+//all order for admin
+  getAlLUserOrdersAdmin(): Observable<any[]> {
+   return this.http.get<any[]>(`${this.apiUrl}/order/all`);
+  }
+
+
+
 }

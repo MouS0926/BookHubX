@@ -79,7 +79,7 @@ async function calculateTotalPrice(userCart) {
     }
   }
   
-// Get User all Orders
+// Get User all Orders for partcular user with authentication
 orderRoute.get("/user", auth, async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -91,6 +91,17 @@ orderRoute.get("/user", auth, async (req, res) => {
   }
 });
 
+//get all order for admin
+orderRoute.get("/all", async (req, res) => {
+  try {
+   
+    const Allorder = await orderModel.find();
+    res.status(200).send(Allorder);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
+});
 
 //Get User's Single Order Details
 
@@ -107,6 +118,9 @@ orderRoute.get("/:orderId", auth, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+
+
 
 module.exports={
     orderRoute

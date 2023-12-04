@@ -16,6 +16,10 @@ export class DiscussionsComponent implements OnInit{
     author: ''
   };
 
+  //discussion filter
+  selectedFilterGenre = ''; // Variable to store the selected genre for filtering
+  filteredDiscussions: any[] = [];
+
   constructor(private discussionService: DiscussionService) { }
 
 
@@ -42,6 +46,7 @@ export class DiscussionsComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadDiscussions()
+    this.filteredDiscussions = this.discussions;//dis2
   }
 
 
@@ -49,10 +54,27 @@ export class DiscussionsComponent implements OnInit{
     this.discussionService.getAllDiscussions().subscribe(
       (data) => {
         this.discussions = data;
+        this.applyGenreFilter();
       },
       (error) => {
         console.error('Error fetching discussions:', error);
       }
     );
   }
+
+
+
+  applyGenreFilter(): void {
+    // If no genre is selected, display all discussions
+    if (!this.selectedFilterGenre) {
+      this.filteredDiscussions = this.discussions;
+    } else {
+      // Filter discussions based on the selected genre
+      this.filteredDiscussions = this.discussions.filter(
+        (discussion) => discussion.genre.includes(this.selectedFilterGenre)
+      );
+    }
+  }
+
+
 }
