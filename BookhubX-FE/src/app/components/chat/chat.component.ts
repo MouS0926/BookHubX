@@ -39,7 +39,7 @@ export class ChatComponent {
 
         if (response && response.length > 0) {
           this.books = response;
-          this.chatMessages.push(...this.books.map(book => `Bot: ${book.title || 'Book  Not Available'}`));
+          this.chatMessages.push(...this.books.map(book => `Bot: ${book.title || 'There is no such book available right now'}`));
         } else {
           this.chatMessages.push('Bot: There is no such book available right now');
         }
